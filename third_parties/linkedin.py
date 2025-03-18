@@ -2,6 +2,9 @@ import os
 import requests
 from dotenv import load_dotenv
 
+load_dotenv(override=True)
+
+
 def scrape_linkedin_profile(linkedin_profile_url: str, mock: bool = False):
     """Scrapes a LinkedIn profile page for information."""
     load_dotenv(override=True)
@@ -18,19 +21,19 @@ def scrape_linkedin_profile(linkedin_profile_url: str, mock: bool = False):
                 {
                     "title": "Software Engineer",
                     "company": "Example Corp",
-                    "duration": "Jan 2020 - Present"
+                    "duration": "Jan 2020 - Present",
                 }
             ],
             "education": [
                 {
                     "degree": "BSc Computer Science",
                     "school": "University of Example",
-                    "duration": "2015 - 2019"
+                    "duration": "2015 - 2019",
                 }
-            ]
+            ],
         }
     else:
-        api_endpoint= "https://api.scrapin.io/enrichment/profile"
+        api_endpoint = "https://api.scrapin.io/enrichment/profile"
         params = {
             "apikey": os.environ["SCRAPIN_API_KEY"],
             "linkedInUrl": linkedin_profile_url,
